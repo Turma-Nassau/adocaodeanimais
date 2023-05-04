@@ -5,9 +5,13 @@ Este é um site de adoção de animais, onde pessoas que desejam adotar um anima
 
 
 ## Funcionalidades
-Cadastro e login de usuários;
-Cadastro de animais para adoção;
-Busca de animais por nome, espécie, idade e gênero;
+Buscar todos os animais cadastrados;
+Buscar um animal por ID;
+Adicionar um novo animal;
+Atualizar as informações de um animal existente por ID;
+Deletar um animal existente por ID;
+Essas funcionalidades estão implementadas como rotas HTTP na aplicação web, que podem ser acessadas através de requisições feitas por clientes que consomem a API; 
+Além disso, a API também possui uma interface de usuário HTML com um formulário que permite interagir com a API de maneira mais amigável para usuários finais;
 ### Tecnologias Utilizadas
 
 
@@ -15,7 +19,7 @@ Busca de animais por nome, espécie, idade e gênero;
 - Express.js
 - Swagger
 - Swagger UI Express
-
+- Serviços de Informações da Internet (IIS)
 
 ### Instalação
 Para instalar e executar a API de animais, siga os seguintes passos:
