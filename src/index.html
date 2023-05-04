@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Animais</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Animais</h1>
+  <button onclick="buscarAnimais()">Buscar todos os animais</button>
+  <br><br>
+  <label>Buscar animal por ID:</label>
+  <input type="text" id="idAnimal">
+  <button onclick="buscarAnimalPorId()">Buscar</button>
+  <br><br>
+  <label>Adicionar novo animal:</label>
+  <br>
+  <label>Animal:</label>
+  <input type="text" id="nomeAnimal">
+  <label>Sexo:</label>
+  <input type="text" id="sexoAnimal">
+  <label>Estado:</label>
+  <input type="text" id="estadoAnimal">
+  <label>Cidade:</label>
+  <input type="text" id="cidadeAnimal">
+  <button onclick="adicionarAnimal()">Adicionar</button>
+  <br><br>
+  <label>Atualizar animal por ID:</label>
+  <br>
+  <label>ID:</label>
+  <input type="text" id="idAnimalAtualizar">
+  <label>Animal:</label>
+  <input type="text" id="nomeAnimalAtualizar">
+  <label>Sexo:</label>
+  <input type="text" id="sexoAnimalAtualizar">
+  <label>Estado:</label>
+  <input type="text" id="estadoAnimalAtualizar">
+  <label>Cidade:</label>
+  <input type="text" id="cidadeAnimalAtualizar">
+  <button onclick="atualizarAnimal()">Atualizar</button>
+  <br><br>
+  <label>Deletar animal por ID:</label>
+  <input type="text" id="idAnimalDeletar">
+  <button onclick="deletarAnimal()">Deletar</button>
+  <br><br>
+  <table id="tabelaAnimais">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Animal</th>
+        <th>Sexo</th>
+        <th>Estado</th>
+        <th>Cidade</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function buscarAnimais() {
+      axios.get('http://localhost:21262/')
+        .then(function (response) {
+          const animais = response.data;
+          const tabelaAnimais = document.getElementById("tabelaAnimais");
+          const tbody = tabelaAnimais.getElementsByTagName("tbody")[0];
+          tbody.innerHTML = "";
+          animais.forEach(animal => {
+            const id = Object.keys(animal)[0];
+            const dados = animal[id];
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${id}</td>
+              <td>${dados.Animal}</td>
+              <td>${dados.Sexo}</td>
+              <td>${dados.Estado}</td>
+<td>${dados.Cidade}</td>
+`;
+tbody.appendChild(tr);
+});
+})
+.catch(function (error) {
+console.log(error);
+});
+}
