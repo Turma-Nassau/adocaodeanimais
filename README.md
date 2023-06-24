@@ -59,4 +59,4 @@ João Victor Xavier
 ![download](https://user-images.githubusercontent.com/130186561/234615567-8c78bbae-9ed3-4f88-acd8-f8513521c4ac.jpg)
 
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE.md para detalhes.
+Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
